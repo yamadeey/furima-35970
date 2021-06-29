@@ -12,28 +12,19 @@
 
 ### Association
 
-has_many :item dependent: :destroy
-belongs_to :card dependent: :destroy
-belongs_to :destination dependent: :destroy
+has_many :item 
+belongs_to :card 
+belongs_to :destination 
 
-# card
-|user_id    |integer|null: false, foreign_key: true|
-|customer_id|string |null: false|
-|card_id    |string	|null: false|
+# purchases
+
+|item|reference|null: false|
+|user|reference|null: false, foreign_key: true|
 
 ### Association
 
 belongs_to :user
-
-# purchases
-
-|item_id|string |null: false|
-|user_id|integer|null: false, foreign_key: true|
-
-### Association
-
-belongs_to :users
-belongs_to :items
+belongs_to :item
 belongs_to :destination
 
 # destination
@@ -54,14 +45,15 @@ belongs_to :purchases
 # item
 
 |image        |string |null: false|
-|namen        |string |null: false|
+|name         |string |null: false|
 |description  |string |null: false|
-|status       |string |null: false|
-|category     |integer|null: false,|foreign_key: true|
-|price        |string |null: false|
-|size         |string |null: false|
-
+|status_id    |integer|null: false|
+|category_id  |integer|null: false,|foreign_key: true|
+|price        |integer|null: false|
+|prefecture_id|integer|null: false|
+|day_id       |integer|null: false|
+|brand_id     |integer|null: false|
 ### Association
 
-belongs_to :users
-has_many :purchases dependent: :destroy
+belongs_to :user
+has_one :purchase
