@@ -12,41 +12,38 @@
 
 ### Association
 
-has_many :item 
-belongs_to :card 
-belongs_to :destination 
+has_many :item  
+has_many :destination 
 
 # purchases
 
-|item|reference|null: false|
+|item|reference|null: false, foreign_key: true|
 |user|reference|null: false, foreign_key: true|
 
 ### Association
 
 belongs_to :user
 belongs_to :item
-belongs_to :destination
+has_one    :destination
 
 # destination
 
-|family_name   |string|null: false|
-|first_name    |string|null: false|
-|post_code     |string|null: false|
-|prefecture    |string|null: false|
-|city          |string|null: false|
-|adress        |string|null: false|
-|building_name |string|           |
-|phone_number  |string|           |
+|post_code     |string |null: false|
+|prefecture    |integer|null: false|
+|city          |string |null: false|
+|adress        |string |null: false|
+|building_name |string |           |
+|phone_number  |string |null: false|
 
 ### Association
 
-belongs_to :purchases
+belongs_to :purchase
 
 # item
 
 |image        |string |null: false|
 |name         |string |null: false|
-|description  |string |null: false|
+|description  |text   |null: false|
 |status_id    |integer|null: false|
 |category_id  |integer|null: false,|foreign_key: true|
 |price        |integer|null: false|
