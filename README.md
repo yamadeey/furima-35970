@@ -13,7 +13,7 @@
 ### Association
 
 has_many :items  
-has_many :destination 
+has_many :purchases 
 
 # purchases
 
@@ -28,6 +28,7 @@ has_one    :destination
 
 # destination
 
+|purchases     |reference|null: false|
 |post_code     |string |null: false|
 |prefecture_id |integer|null: false|
 |city          |string |null: false|
