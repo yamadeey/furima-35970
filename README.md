@@ -2,7 +2,7 @@
 |Column|Type|Options|
 
 |nickname          |string|null: false|
-|email             |string|null: false,uniqueness: true|
+|email             |string|null: false,unique: true|
 |encrypted_password|string|null: false|
 |family_name       |string|null: false|
 |first_name        |string|null: false|
@@ -26,13 +26,13 @@ belongs_to :user
 belongs_to :item
 has_one    :destination
 
-# destination
+# destinations
 
-|purchases     |reference|null: false|
+|purchase      |references|foreign_key: true|
 |post_code     |string |null: false|
 |prefecture_id |integer|null: false|
 |city          |string |null: false|
-|adress        |string |null: false|
+|address        |string |null: false|
 |building_name |string |           |
 |phone_number  |string |null: false|
 
@@ -40,7 +40,7 @@ has_one    :destination
 
 belongs_to :purchase
 
-# item
+# items
 
 |name         |string |null: false|
 |description  |text   |null: false|
@@ -48,8 +48,9 @@ belongs_to :purchase
 |category_id  |integer|null: false|
 |price        |integer|null: false|
 |prefecture_id|integer|null: false|
-|day_id       |integer|null: false|
+|date_id      |integer|null: false|
 |brand_id     |integer|null: false|
+|burden       |integer|null: false|
 ### Association
 
 belongs_to :user
