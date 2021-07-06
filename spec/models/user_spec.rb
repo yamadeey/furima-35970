@@ -48,17 +48,17 @@ describe User, type: :model do
       it 'passwordが半角数字のみの場合は登録できない' do
         @user.password = '000000'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
+        expect(@user.errors.full_messages).to include('Password is invalid')
       end
       it 'passwordが半角英字のみの場合は登録できない' do
         @user.password = '000000'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
+        expect(@user.errors.full_messages).to include('Password is invalid')
       end
       it 'passwordが全角の場合は登録できない' do
         @user.password = '000000'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
+        expect(@user.errors.full_messages).to include('Password is invalid')
       end
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         @user.password = '000000'
