@@ -34,22 +34,22 @@ describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it 'status_idが1では登録されない' do
-        @item.status_id = '1'
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Status must be other than 1')
       end
       it 'burden_idが1では登録されない' do
-        @item.burden_id = '1'
+        @item.burden_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Burden must be other than 1')
       end
       it 'prefecture_idが1では登録されない' do
-        @item.prefecture_id = '1'
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it 'delivery_idが1では登録されない' do
-        @item.delivery_id = '1'
+        @item.delivery_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Delivery must be other than 1')
       end
