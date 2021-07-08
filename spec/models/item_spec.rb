@@ -31,7 +31,7 @@ describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
         it 'category_idが1では登録されない' do
-        @item.category_id = "1"
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
@@ -58,7 +58,8 @@ describe Item, type: :model do
       it 'priceが空では登録されない' do
         @item.price = ""
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is invalid", "Price is not a number")
+        
+        expect(@item.errors.full_messages).to include("Price is not a number")
       end
       it 'priceが半角数字以外では登録できない' do
         @item.price = "１０００"
@@ -73,12 +74,17 @@ describe Item, type: :model do
       it 'priceが300より少ないと登録できない' do
         @item.price = 50
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than 300")
+        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
       end
       it 'priceが9999999より多いと登録できない' do
         @item.price = 10000000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than 9999999")
+        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+      end
+      it 'userが存在しないと登録できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
       end
     end
   end
