@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe ItemOrder, type: :model do
-
   before do
     @item_order = FactoryBot.build(:item_order)
     @item = FactoryBot.build(:item)
@@ -16,9 +15,7 @@ describe ItemOrder, type: :model do
     end
     context '商品出品がうまくいかないとき' do
       it '' do
-        
       end
     end
   end
 end
-
