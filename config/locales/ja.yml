@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname        : ニックネーム
+        family_name     : 苗字
+        first_name      : 名前
+        family_name_kana: 苗字(カナ)
+        first_name_kana : 名前(カナ)
+        birthday        : 誕生日
+      item:
+        text            : テキスト
+        image           : 画像
+        title           : 商品名
+        description     : 商品の説明
+        burden_id       : 配送の負担
+        category_id     : カテゴリー
+        prefecture_id   : 都道府県
+        delivery_id     : 配送日数
+        status_id       : 商品状態
+        price           : 価格
+  activemodel:
+    attributes:
+      item_order:
+        phone_number    : 電話番号
+        postal_code     : 郵便番号
+        block_name      : 番地
+        city_name       : 市区町村
+        token           : カード情報
+        prefecture_id   : 都道府県
